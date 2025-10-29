@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I'mPandit | Roblox, TikTok & YouTube</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --panda-pink: #ff66cc; --panda-blue: #33ccff; --panda-green: #66ff66;
+      --panda-dark: #1a1a2e; --panda-night: #0f3460;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(-45deg, var(--panda-dark), var(--panda-night), #16213e, #1e3a5f);
+      background-size: 400% 400%;
+      animation: pandaGradient 15s ease infinite;
+      font-family: 'Comfortaa', cursive;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    @keyframes pandaGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+    header { text-align: center; padding: 3rem 1rem; position: relative; overflow: hidden; }
+    
+    /* ПАНДОЧКИ ЛЕТАЮТ! */
+    .panda-float {
+      position: absolute;
+      font-size: 2.3rem;
+      animation: flyPanda 4s ease-in-out infinite;
+      opacity: 0.85;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .panda-float:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+    .panda-float:nth-child(2) { top: 25%; right: 10%; animation-delay: 1s; }
+    .panda-float:nth-child(3) { bottom: 20%; left: 8%; animation-delay: 2s; }
+    .panda-float:nth-child(4) { bottom: 30%; right: 15%; animation-delay: 0.5s; }
+    @keyframes flyPanda {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      50% { transform: translateY(-30px) rotate(15deg) scale(1.1); }
+    }
+
+    .logo { width: 190px; height: auto; margin: 0 auto 1rem; display: block; border-radius: 50%; box-shadow: 0 0 35px rgba(255,102,204,0.7); border: 4px solid #fff; animation: pulseGlow 3s infinite; }
+    @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 35px rgba(255,102,204,0.7); } 50% { box-shadow: 0 0 50px rgba(255,102,204,1); } }
+
+    h1 { 
+      font-family: 'Pacifico', cursive; 
+      font-size: 3rem; 
+      background: linear-gradient(90deg, var(--panda-pink), var(--panda-blue), var(--panda-green));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(255,255,255,0.6); 
+      margin-bottom: 0.5rem; animation: titlePulse 2.5s infinite;
+    }
+    @keyframes titlePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+    .subtitle { font-size: 1.4rem; color: #fff; text-shadow: 0 0 12px rgba(0,0,0,0.3); margin-bottom: 1rem; }
+
+    /* КАРТОЧКИ — ПАРНО, РОВНО! */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.2rem;
+      justify-items: center;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.12); 
+      border-radius: 28px; 
+      padding: 2.3rem;
+      border: 2px solid rgba(255, 255, 255, 0.25); 
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3); 
+      backdrop-filter: blur(12px);
+      transition: all 0.5s ease; 
+      position: relative; 
+      overflow: hidden;
+      animation: cardFloat 8s infinite ease-in-out;
+      width: 100%; 
+      max-width: 420px;
+    }
+    .card:hover { 
+      transform: translateY(-18px) scale(1.05); 
+      box-shadow: 0 30px 60px rgba(255,102,204,0.4); 
+      border-color: var(--panda-pink);
+    }
+    @keyframes cardFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+    .card h2 { 
+      font-family: 'Pacifico', cursive; 
+      font-size: 1.9rem; 
+      margin-bottom: 1rem; 
+      background: linear-gradient(45deg, var(--panda-pink), var(--panda-blue));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .card p { line-height: 1.7; margin-bottom: 1rem; font-size: 1.1rem; }
+
+    .social-btn { 
+      display: inline-block; 
+      margin: 0.6rem 0.3rem; 
+      padding: 0.9rem 1.8rem; 
+      background: linear-gradient(45deg, var(--panda-pink), var(--panda-blue)); 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 50px; 
+      font-weight: bold; 
+      font-size: 1rem;
+      transition: all 0.3s; 
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    .social-btn:hover { 
+      transform: scale(1.08) translateY(-3px); 
+      box-shadow: 0 10px 25px rgba(255,102,204,0.5); 
+    }
+
+    .story-card { 
+      background: rgba(255,255,255,0.08); 
+      border: 1px dashed var(--panda-green); 
+      padding: 1.6rem; 
+      margin: 1.2rem 0; 
+      border-radius: 18px; 
+      animation: glowBorder 3s infinite alternate;
+    }
+    @keyframes glowBorder { from { border-color: var(--panda-green); } to { border-color: var(--panda-pink); } }
+    .story-card h3 { color: var(--panda-pink); font-size: 1.3rem; }
+
+    /* ФОРМА "ПОЗНАКОМИТЬСЯ" — ТВОЯ ССЫЛКА УЖЕ ВНУТРИ! */
+    .friend-form {
+      background: rgba(255,255,255,0.15);
+      padding: 2rem;
+      border-radius: 20px;
+      margin-top: 1rem;
+    }
+    .friend-form input, .friend-form textarea {
+      width: 100%;
+      padding: 0.9rem;
+      margin: 0.8rem 0;
+      border: none;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      font-family: 'Comfortaa', cursive;
+      font-size: 1rem;
+    }
+    .friend-form input::placeholder, .friend-form textarea::placeholder {
+      color: rgba(255,255,255,0.7);
+    }
+    .friend-form button {
+      background: linear-gradient(45deg, var(--panda-pink), var(--panda-blue));
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
+    .friend-form button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255,102,204,0.6);
+    }
+
+    footer { 
+      text-align: center; 
+      padding: 3rem 1rem; 
+      color: #fff; 
+      font-size: 1.2rem; 
+      text-shadow: 0 0 12px rgba(0,0,0,0.3); 
+      margin-top: 4rem; 
+      font-weight: bold; 
+    }
+    .footer-special {
+      font-size: 1.5rem; 
+      margin-top: 1rem; 
+      color: var(--panda-pink); 
+      text-shadow: 0 0 20px rgba(255,102,204,0.9); 
+      animation: heartPulse 2s infinite;
+    }
+    @keyframes heartPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+    @media (max-width: 768px) { 
+      h1 { font-size: 2.3rem; } 
+      .container { grid-template-columns: 1fr; padding: 1rem; } 
+      .card { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ЛЕТАЮЩИЕ ПАНДОЧКИ! -->
+  <div class="panda-float">Panda</div>
+  <div class="panda-float">Panda</div>
+  <div class="panda-float">Panda</div>
+  <div class="panda-float">Panda</div>
+
+  <header>
+    <img src="https://i.ibb.co/7LsPg1L/logotip-kamala.png" alt="Логотип I'mPandit" class="logo">
+    <h1>I'mPandit</h1>
+    <p class="subtitle">весёлая девчонка • Roblox • TikTok • YouTube</p>
+  </header>
+
+  <!-- КАРТОЧКИ — ПАРНО, РОВНО -->
+  <div class="container">
+
+    <!-- О ней -->
+    <div class="card">
+      <h2>Привет, я — I'mPandit!</h2>
+      <img src="https://i.ibb.co/TqpHbMfR/ie-foto.jpg" alt="Фото I'mPandit" style="width:100%; border-radius:18px; margin:1.2rem 0;">
+      <p>Я — <strong>весёлая девчонка</strong>, которая обожает Roblox, снимать смешные видео и радовать подписчиков! Делаю мемы, челленджи, истории и лайфхаки. Люблю Adopt Me, Bloxburg, Obby и всё, что блестит!</p>
+      <p>По вопросам <strong>сотрудничества</strong> — пиши в <strong>Директ TikTok</strong>!</p>
+    </div>
+
+    <!-- Рубрики -->
+    <div class="card">
+      <h2>Мои рубрики</h2>
+      <div class="story-card">
+        <h3>Смешные TikTok</h3>
+        <p>Мемы, фейлы, танцы, челленджи — всё, что залетает!</p>
+        <a href="https://www.tiktok.com/@impanditochka" class="social-btn" target="_blank">Смотреть на TikTok</a>
+      </div>
+      <div class="story-card">
+        <h3>Roblox-истории</h3>
+        <p>Драмы, приключения и тёплые моменты из Roblox.</p>
+        <a href="https://www.youtube.com/@IMPANDITOCHKA" class="social-btn" target="_blank">Смотреть на YouTube</a>
+      </div>
+      <div class="story-card">
+        <h3>Лайфхаки & Прохождения</h3>
+        <p>Секреты, трюки и гайды по любимым играм.</p>
+        <a href="https://www.youtube.com/@IMPANDITOCHKA" class="social-btn" target="_blank">Смотреть на YouTube</a>
+      </div>
+    </div>
+
+    <!-- Социалки -->
+    <div class="card">
+      <h2>Где меня найти</h2>
+      <a href="https://www.youtube.com/@IMPANDITOCHKA" class="social-btn" target="_blank">YouTube</a>
+      <a href="https://www.tiktok.com/@impanditochka" class="social-btn" target="_blank">TikTok</a>
+      <a href="https://www.roblox.com/users/5158489169/profile" class="social-btn" target="_blank">Roblox</a>
+    </div>
+
+    <!-- Персонаж Хакер -->
+    <div class="card">
+      <h2>Мой персонаж — Хакер</h2>
+      <p>Это **мой выдуманный герой из видео**! Таинственный хакер, который взламывал аккаунты, давал задания и создавал драму. Всё ради сюжета и веселья! Он появлялся в историях, а потом **внезапно исчез** — как в сериале!</p>
+      <a href="https://www.youtube.com/@IMPANDITOCHKA" class="social-btn" target="_blank">Смотреть истории</a>
+    </div>
+
+    <!-- Дружба с Ua_BoGINYa3211 -->
+    <div class="card">
+      <h2>Моя подруга Ua_BoGINYa3211</h2>
+      <p>Она — **моя близкая подруга**, которая рисовала мне **арты**, помогала с каналом и начинала со мной снимать. Мы были неразлучны!</p>
+      <p>Потом она пропала из Roblox... Но я **никогда не забуду её поддержку**.</p>
+      <p>Этот сайт — **в её честь**.</p>
+    </div>
+
+    <!-- КАРТОЧКА "ПОЗНАКОМИТЬСЯ" — ТВОЯ ФОРМА УЖЕ ВНУТРИ! -->
+    <div class="card">
+      <h2>Хочешь дружить?</h2>
+      <p>Оставь свой ник и цель — я увижу!</p>
+      <div class="friend-form">
+        <form action="https://formspree.io/f/xblpyklw" method="POST">
+          <input type="text" name="nickname" placeholder="Твой никнейм (Roblox/TikTok)" required>
+          <textarea name="message" rows="3" placeholder="Зачем хочешь дружить? (играть, коллаб, просто поболтать)" required></textarea>
+          <button type="submit">Отправить заявку</button>
+        </form>
+        <p style="font-size:0.9rem; margin-top:1rem; opacity:0.8;">
+          Я захожу на сайт и вижу все заявки!
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ФУТЕР С ЛЮБОВЬЮ -->
+  <footer>
+    <p>© 2025 I'mPandit | Весёлая Roblox-девчонка</p>
+    <p class="footer-special">
+      Сайт сделан <strong>Ua_BoGINYa3211</strong> для <strong>I'mPandit</strong>!
+    </p>
+  </footer>
+
+  <script>
+    // Анимация карточек
+    document.querySelectorAll('.card').forEach((card, i) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(60px)';
+      setTimeout(() => {
+        card.style.transition = 'all 0.9s ease-out';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, i * 250);
+    });
+  </script>
+</body>
+</html>
