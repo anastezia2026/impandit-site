@@ -1,7 +1,4 @@
-# itslens_bot
-# itslens_bot
-# README.md — вставь в начало любого проекта:
-
+impandit-site
 # 🕵️ Детективный Органайзер
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white))
